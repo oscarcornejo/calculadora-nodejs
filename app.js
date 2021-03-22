@@ -1,10 +1,17 @@
 const { inquirerMenu, leerInput, pausa } = require('./helpers/inquirer');
 const { sumar, restar, multiplicar, dividir } = require('./calculator');
-const { guardarDB } = require('./helpers/guardarArchivo');
+const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
 
 const main = async () => {
   let opt = '';
   let resultado = [];
+
+  const resultadosDB = leerDB();
+
+  if (resultadosDB) {
+    // Establecer los resultados en DATA BASE
+    resultado = resultadosDB;
+  }
 
   do {
     // Imprimir el Menú
@@ -21,6 +28,7 @@ const main = async () => {
         resultado.push({
           type: 'Suma',
           result: resultSum,
+          date: new Date().toLocaleDateString(),
         });
         break;
 
@@ -35,6 +43,7 @@ const main = async () => {
         resultado.push({
           type: 'Resta',
           result: resultRest,
+          date: new Date().toLocaleDateString(),
         });
         break;
 
@@ -49,6 +58,7 @@ const main = async () => {
         resultado.push({
           type: 'Multiplicar',
           result: resultMulti,
+          date: new Date().toLocaleDateString(),
         });
         break;
 
@@ -66,6 +76,7 @@ const main = async () => {
           resultado.push({
             type: 'Dividir',
             result: resultDiv,
+            date: new Date().toLocaleDateString(),
           });
         }
 
