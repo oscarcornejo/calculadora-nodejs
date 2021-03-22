@@ -38,7 +38,11 @@ const main = async () => {
         const div1 = await leerInput('Primer Valor:');
         const div2 = await leerInput('Segundo Valor:');
         console.log();
-        console.log('El resultado de la división es: ', dividir(Number(div1), Number(div2)));
+        if (!dividir(Number(div1), Number(div2))) {
+          console.log('¡Oops! Resultado indeterminado');
+        } else {
+          console.log('El resultado de la división es: ', dividir(Number(div1), Number(div2)));
+        }
         break;
     }
 
