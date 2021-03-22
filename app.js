@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 const { inquirerMenu, leerInput, pausa } = require('./helpers/inquirer');
 const { sumar, restar, multiplicar, dividir } = require('./calculator');
 const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
@@ -7,8 +8,9 @@ const main = async () => {
   let resultado = [];
 
   const resultadosDB = leerDB();
+  // console.log(resultadosDB);
 
-  if (resultadosDB) {
+  if (resultadosDB.length > 0) {
     // Establecer los resultados en DATA BASE
     resultado = resultadosDB;
   }
@@ -26,6 +28,7 @@ const main = async () => {
         console.log();
         console.log('El resultado de la suma es: ', resultSum);
         resultado.push({
+          id: uuidv4(),
           type: 'Suma',
           result: resultSum,
           date: new Date().toLocaleDateString(),
@@ -41,6 +44,7 @@ const main = async () => {
         console.log('El resultado de la resta es: ', resultRest);
 
         resultado.push({
+          id: uuidv4(),
           type: 'Resta',
           result: resultRest,
           date: new Date().toLocaleDateString(),
@@ -56,6 +60,7 @@ const main = async () => {
         console.log('El resultado de la multiplicación es: ', resultMulti);
 
         resultado.push({
+          id: uuidv4(),
           type: 'Multiplicar',
           result: resultMulti,
           date: new Date().toLocaleDateString(),
@@ -74,6 +79,7 @@ const main = async () => {
           console.log('El resultado de la división es: ', resultDiv);
 
           resultado.push({
+            id: uuidv4(),
             type: 'Dividir',
             result: resultDiv,
             date: new Date().toLocaleDateString(),
