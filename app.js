@@ -11,7 +11,7 @@ const main = async () => {
   // console.log(resultadosDB);
 
   if (resultadosDB.length > 0) {
-    // Establecer los resultados en DATA BASE
+    // Establecer los datos guadados en DATA BASE
     resultado = resultadosDB;
   }
 
@@ -25,8 +25,10 @@ const main = async () => {
         const sum1 = await leerInput('Primer Valor:');
         const sum2 = await leerInput('Segundo Valor:');
         const resultSum = sumar(Number(sum1), Number(sum2));
+
         console.log();
         console.log('El resultado de la suma es: ', resultSum);
+
         resultado.push({
           id: uuidv4(),
           type: 'Suma',
@@ -40,6 +42,7 @@ const main = async () => {
         const rest1 = await leerInput('Primer Valor:');
         const rest2 = await leerInput('Segundo Valor:');
         const resultRest = restar(Number(rest1), Number(rest2));
+
         console.log();
         console.log('El resultado de la resta es: ', resultRest);
 
@@ -56,6 +59,7 @@ const main = async () => {
         const mult1 = await leerInput('Primer Valor:');
         const mult2 = await leerInput('Segundo Valor:');
         const resultMulti = multiplicar(Number(mult1), Number(mult2));
+
         console.log();
         console.log('El resultado de la multiplicación es: ', resultMulti);
 
@@ -72,7 +76,9 @@ const main = async () => {
         const div1 = await leerInput('Primer Valor:');
         const div2 = await leerInput('Segundo Valor:');
         const resultDiv = dividir(Number(div1), Number(div2));
+
         console.log();
+
         if (!dividir(Number(div1), Number(div2))) {
           console.log('¡Oops! Resultado indeterminado');
         } else {

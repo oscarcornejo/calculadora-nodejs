@@ -4,7 +4,7 @@ require('colors');
 const preguntas = [
   {
     type: 'list',
-    name: 'opcion', // Nombre a destructurar para retornar (ver línea 27)
+    name: 'opcion', // Nombre a destructurar para retornar (ver línea 25 y 27)
     message: '¿Qué operación desea realizar?',
     choices: [
       { value: '1', name: `${'1.'.green} Sumar` },
